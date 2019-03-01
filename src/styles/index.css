@@ -1,0 +1,124 @@
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+}
+
+.price {
+    color: grey;
+    font-size: 22px;
+}
+
+.card button {
+    border: none;
+    outline: 0;
+    padding: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card:active {
+    background-color: aliceblue;
+}
+
+
+.card button:hover {
+    opacity: 0.7;
+}
+
+.limited-padding {
+    padding-right: 2px;
+    padding-left: 2px;
+}
+
+.active_list {
+    background-color: aliceblue;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
+
+.custom-grid {
+    display:inline-block;
+    border-top: 1px solid black;
+    border-right: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.nav-bar {
+    margin-bottom: 0rem!important;
+}
+
+.custom-nav {
+    background-color: #5E5E5E;
+}
+
+.order-form {
+    padding: 50px;
+}
+
+.order-grid {
+    padding: 20px;
+}
+
+.custom-table {
+    overflow-y: auto;
+}
+
+.card-button-wrapper {
+    bottom: 0;
+}
+
+.card-body-wrapper {
+    height: 200px;
+}
+
+.card-button {
+    float: right;
+    width: 50%;
+
+}
+
+.button-wrapper {
+    padding: 5px;
+    margin: auto;
+}
+
+.suc .icon-span {
+    font-size: 20px;
+}
+
+.dan .icon-span {
+    font-size: 20px;
+
+}
+
+.dan {
+    background-color: #d74338;
+}
+
+.suc {
+    background-color: #28a745;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+.navbar-brand>img {
+    padding: 7px 14px;
+}
+
+.item-grid-wrapper {
+    padding: 20px;
+}
