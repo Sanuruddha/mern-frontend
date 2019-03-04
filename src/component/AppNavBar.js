@@ -34,21 +34,17 @@ class AppNavBar extends Component {
                     <NavbarBrand href={'/'}>
                         <img alt={'Logo'} src="/img/logo2.png" width="100"/><h1>Simple POS</h1></NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
-                        <Collapse isOpen={this.state.isOpen} navbar>
-                            <Nav className={'ml-auto'} navbar>
-                                <NavItem>
-                                    {
-                                        this.props.auth.loggedIn? (<NavLink href={'/logout'}>
-                                            Logout
-                                        </NavLink>) : (
-                                            <NavLink href={'/'}>
-                                                Signup
-                                            </NavLink>
-                                        )
-                                    }
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className={'ml-auto'} navbar>
+                            <NavItem>
+                                {
+                                this.props.auth.loggedIn? (<NavLink href={'/logout'}>
+                                    Logout
+                                </NavLink>) : ('')
+                                }
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
             </Navbar>
         </div>)
     }
