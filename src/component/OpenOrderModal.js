@@ -19,29 +19,46 @@ class OpenOrderModal extends React.Component {
     };
 
     render() {
-
+        let total = 0;
         return (
             <div>
                 <Modal centered={true} fade={false} isOpen={this.props.isOpen} toggle={this.toggleModal.bind(this)}>
                     <ModalHeader toggle={this.toggleModal.bind(this)}>{this.props.modalHeader}</ModalHeader>
                     <ModalBody>
-                        {this.props.items.map(item => (
-                            <div key={item._id}>
+                        {this.props.items.map(item => {
+                            total = total + item.price * item.count / 100
+                            return (
+                                <div key={item._id}>
+                                    <Row>
+                                        <Col sm={10}>
+                                            {item.name} | {item.count} | {(item.price * item.count / 100).toFixed()}</Col>
+                                        <Col sm={2}>
+                                            <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
+                                                +
+                                            </button>
+                                            <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
+                                                -
+                                            </button>
+                                        </Col>
+                                    </Row>
+                                </div>
+
+                            )
+                        })}
+                        {
+                            <div>
+                                <br/>
                                 <Row>
-                                    <Col sm={10}>
-                                        {item.name} | {item.count} | {(item.price * item.count / 100).toFixed()}</Col>
+                                    <Col sm={8}></Col>
                                     <Col sm={2}>
-                                        <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
-                                            +
-                                        </button>
-                                        <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
-                                            -
-                                        </button>
+                                        {'Total :'}
+                                    </Col>
+                                    <Col sm={2}>
+                                        {total.toString()}
                                     </Col>
                                 </Row>
                             </div>
-
-                        ))}
+                        }
                     </ModalBody>
                     <ModalFooter>
                         <Button color={this.props.cancelColor}  onClick={this.toggleModal.bind(this)}>{this.props.modalCancelLabel}</Button>
