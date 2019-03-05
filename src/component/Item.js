@@ -64,16 +64,17 @@ class Item extends Component {
         return (
             <div>
                 <Card>
-                    <CardHeader>
+                    <CardHeader style={{padding: '5px', backgroundColor: '#bfbfbf'}}>
                         <CardTitle>
                             <h6>{item.name.toUpperCase()}</h6>
                         </CardTitle>
                     </CardHeader>
+                    <br/>
                     <CardImg top style={{width: "100%", height: "8vw"}}
                         src={`/img/fooditems/${item._id}.jpg`}
                              alt="Card image cap" />
-                    <CardBody>
-                        <CardText>{item.price / 100 + ' LKR'}</CardText>
+                    <CardBody style={{padding:'10px'}}>
+                        <CardText style={{marginBottom:'10px'}}>{item.price / 100 + ' LKR'}</CardText>
                         <Button className={'float-right'} color={'success'}
                                 style={{marginLeft: '1rem'}}
                                 onClick={this.addToList.bind(this)}
