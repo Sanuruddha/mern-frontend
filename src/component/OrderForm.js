@@ -46,7 +46,7 @@ class OrderForm extends Component {
                             }).map(item => {
                                 total += item.price * item.count / 100;
                                 return (
-                                    <tr>
+                                    <tr key={item._id}>
                                         <th scope="row">{++number}</th>
                                         <td>{item.name}</td>
                                         <td>{item.count}</td>
@@ -54,13 +54,13 @@ class OrderForm extends Component {
                                     </tr>
                                 )
                             })}
-                            </tbody>
                             <tr>
                                 <th scope="col">{""}</th>
                                 <th scope="col">{""}</th>
                                 <th scope="col">{total? "Total": ""}</th>
                                 <th scope="col">{total? total: ''}</th>
                             </tr>
+                            </tbody>
                         </table>
                     </div>
                 </FormGroup>

@@ -78,11 +78,6 @@ class OrderList extends Component {
                     onClick={this.setActiveList.bind(this, _id)}
                     className={classnames({ active_list: this.props.activeList === _id }, 'card')}>
                     <div className={'card-body-wrapper'}>
-                        <button className={'suc'} onClick={this.openOrder.bind(this)}>
-                                    <span className={'icon-span'}>
-                                        View
-                                    </span>
-                        </button>
                         <OpenOrderModal
                             id={_id}
                             isOpen={this.state.orderListModal}
@@ -95,7 +90,7 @@ class OrderList extends Component {
                             confirmColor={"danger"}
                             items={items}
                         />
-                        <h5>{name}</h5>
+                        <div style={{backgroundColor : '#bfbfbf', padding: '5px'}}><h5>{name}</h5></div>
                         {items.map(item => (
                             <div key={item._id}>
                                 {item.name} | {item.count} | {(item.price * item.count / 100).toFixed()}
@@ -103,6 +98,11 @@ class OrderList extends Component {
                         ))}
                         <p className="price"> {sum} LKR</p>
                     </div>
+                    <button className={'suc'} onClick={this.openOrder.bind(this)}>
+                                    <span className={'icon-span'}>
+                                        View
+                                    </span>
+                    </button>
                     <div className={'card-button-wrapper'}>
                             <span className={'card-button'}>
                                 <div className={'button-wrapper'}>

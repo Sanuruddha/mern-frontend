@@ -11,6 +11,7 @@ import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import CardHeader from "reactstrap/es/CardHeader";
 import { addToList, updateNewList } from "../actions/listActions";
+import CardText from "reactstrap/es/CardText";
 
 class Item extends Component {
     constructor(props) {
@@ -72,6 +73,7 @@ class Item extends Component {
                         src={`/img/fooditems/${item._id}.jpg`}
                              alt="Card image cap" />
                     <CardBody>
+                        <CardText>{item.price / 100 + ' LKR'}</CardText>
                         <Button className={'float-right'} color={'success'}
                                 style={{marginLeft: '1rem'}}
                                 onClick={this.addToList.bind(this)}

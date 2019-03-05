@@ -15,7 +15,7 @@ export const authenticate = (user) => dispatch => {
                     if(res2.status === 200) {
                         localStorage.setItem('token', res1.data.token);
                         localStorage.setItem('user', JSON.stringify(res2.data));
-                        history.push('/body');
+                        history.push('/dashboard');
                     }
                     const loggedIn = res2.status === 200;
                         dispatch({
@@ -44,7 +44,7 @@ export const authenticateWithToken = (token) => dispatch => {
                 if(res2.status === 200) {
                     localStorage.setItem('token', token);
                     localStorage.setItem('user', JSON.stringify(res2.data));
-                    history.push('/body');
+                    history.push('/dashboard');
                 }
                 const loggedIn = res2.status === 200;
                 dispatch({

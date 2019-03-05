@@ -29,7 +29,7 @@ class Login extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.authenticate(this.state);
-        history.push('/body');
+        history.push('/dashboard');
     };
     handleChange = (e) => {
         this.setState({
@@ -40,7 +40,7 @@ class Login extends Component {
     render() {
         if (this.props.auth.loggedIn) {
             return (
-                <Redirect to={'/body'}/>
+                <Redirect to={'/dashboard'}/>
             )
         }
         else {
