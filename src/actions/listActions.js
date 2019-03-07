@@ -1,5 +1,5 @@
 import {
-    ITEMS_LOADING,
+    LISTS_LOADING,
     DELETE_LIST,
     GET_LISTS,
     SELECT_LIST,
@@ -14,7 +14,7 @@ export const createList = (list) => (dispatch) => {
     dispatch({
         type: CLEAR_NEW_LIST
     });
-    axios
+    return axios
         .post(`/api/lists`, list)
         .then(res => dispatch({
             type: ADD_LIST,
@@ -23,8 +23,8 @@ export const createList = (list) => (dispatch) => {
 };
 
 export const getLists = () => (dispatch) => {
-    dispatch(setItemsLoading());
-    axios
+    dispatch(setListsLoading());
+    return axios
         .get(`/api/lists`)
         .then(res => dispatch({
             type: GET_LISTS,
@@ -33,10 +33,9 @@ export const getLists = () => (dispatch) => {
 };
 
 export const removeList = (id) => (dispatch) => {
-    axios
+    return axios
         .delete(`/api/lists/${id}`)
         .then(res => {
-            console.log(res);
             dispatch({
                 type: DELETE_LIST,
                 payload: res.data._id
@@ -46,7 +45,7 @@ export const removeList = (id) => (dispatch) => {
 };
 
 export const closeList = list => (dispatch) => {
-    axios
+    return axios
         .put('/api/lists', list)
         .then(res =>{
                 dispatch({
@@ -69,17 +68,16 @@ export const selectList = (id) => {
     }
 };
 
-export const setItemsLoading = () => {
+export const setListsLoading = () => {
     return {
-        type: ITEMS_LOADING
+        type: LISTS_LOADING
     }
 };
 
 export const addToList = (listId, itemId) => (dispatch) => {
-    axios
+    return axios
         .put(`/api/lists/${listId}/${itemId}`)
         .then(res => {
-            console.log(res.data);
             dispatch({
                 type: UPDATE_LIST,
                 payload: {
@@ -91,10 +89,9 @@ export const addToList = (listId, itemId) => (dispatch) => {
 };
 
 export const removeFromList = (listId, itemId) => (dispatch) => {
-    axios
+    return axios
         .delete(`/api/lists/${listId}/${itemId}`)
         .then(res => {
-            console.log(res.data);
             dispatch({
                 type: UPDATE_LIST,
                 payload: {

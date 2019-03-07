@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import {  getLists, selectList } from "../actions/listActions";
 import OrderList from './OrderList';
 import { Row, Col } from "reactstrap";
-import '../styles/index.css';
 
 class ListContainer extends Component {
     state = {

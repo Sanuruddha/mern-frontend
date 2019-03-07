@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 import { Col } from 'reactstrap';
 import { getItems } from '../actions/itemActions'
 import { closeList, removeList } from '../actions/listActions';
-import '../styles/index.css';
 import classnames from "classnames";
 import ConfirmationModal from './ConfirmationModal';
 import OpenOrderModal from './OpenOrderModal';

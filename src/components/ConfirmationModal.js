@@ -11,7 +11,7 @@ class ConfirmationModal extends React.Component {
     handleConfirmation = () => {
         this.props.onConfirm();
         this.toggleModal();
-    }
+    };
 
     render() {
         return (

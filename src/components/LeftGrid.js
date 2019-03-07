@@ -3,7 +3,6 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Row, Col } from 'reactstrap
 import classnames from 'classnames';
 import ListContainer from './ListContainer';
 import NewOrder from './NewOrder';
-import '../styles/index.css';
 import { OPEN_ORDER_TAB, NEW_ORDER_TAB } from '../utils/consts'
 import { changeActiveTab } from "../actions/tabActions";
 import PropTypes from "prop-types";

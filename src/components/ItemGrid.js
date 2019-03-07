@@ -7,7 +7,6 @@ import { deleteItem, getItems } from "../actions/itemActions";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import ItemForm from "./ItemForm";
-import '../styles/index.css';
 import { NEW_ITEM_TAB, ITEMS_TAB } from '../utils/consts';
 import { changeActiveTab } from "../actions/tabActions";
 

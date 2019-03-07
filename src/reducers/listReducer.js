@@ -1,7 +1,6 @@
 import {
     ADD_LIST,
     DELETE_LIST,
-    GET_LISTS_BY_USER,
     LISTS_LOADING,
     CLOSE_LIST,
     GET_LISTS,
@@ -31,12 +30,6 @@ export default function(state = initialState, action) {
                 ...state,
                 newList: action.payload
             };
-        case GET_LISTS_BY_USER:
-            return {
-                ...state,
-                lists: action.payload,
-                loading: false
-            };
         case GET_LISTS:
             return {
                 ...state,
@@ -49,11 +42,6 @@ export default function(state = initialState, action) {
                 lists: state.lists.filter(list => list._id !== action.payload),
             };
         case ADD_LIST:
-            return {
-                ...state,
-                lists: [...state.lists, action.payload]
-            };
-        case CLOSE_LIST:
             return {
                 ...state,
                 lists: [...state.lists, action.payload]

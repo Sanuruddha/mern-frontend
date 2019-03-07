@@ -1,7 +1,6 @@
 import { addItem } from '../actions/itemActions';
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../styles/index.css';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
 

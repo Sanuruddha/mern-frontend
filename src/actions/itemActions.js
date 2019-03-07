@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const getItems = () => (dispatch) => {
     dispatch(setItemsLoading());
-    axios
+    return axios
         .get('/api/items')
         .then(res => dispatch({
             type: GET_ITEMS,
@@ -12,7 +12,7 @@ export const getItems = () => (dispatch) => {
 };
 
 export const deleteItem = (id) => (dispatch) => {
-    axios
+    return axios
         .delete(`/api/items/${id}`)
         .then(res =>
             dispatch({
@@ -22,7 +22,7 @@ export const deleteItem = (id) => (dispatch) => {
 };
 
 export const addItem = item => (dispatch) => {
-    axios
+    return axios
         .post('/api/items', item)
         .then(res =>
             dispatch({

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css';
-import Body from './component/Body';
-import Login from './component/Login';
+import Body from './components/Body';
+import Login from './components/Login';
 import { Router, Route } from 'react-router-dom'
 import history from './history'
-import Logout from './component/Logout';
+import Logout from './components/Logout';
 
 
 

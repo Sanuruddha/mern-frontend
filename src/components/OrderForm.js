@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import '../styles/index.css';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { updateNewList, createList } from '../actions/listActions';
