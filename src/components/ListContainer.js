@@ -10,7 +10,7 @@ class ListContainer extends Component {
         activeList: ''
     };
     componentDidMount() {
-        this.props.getLists();
+        this.props.getLists(this.props.auth.user.id);
     }
 
     setActiveList = (id) => {
@@ -38,10 +38,13 @@ class ListContainer extends Component {
 ListContainer.propTypes = {
     getLists: PropTypes.func.isRequired,
     selectList: PropTypes.func.isRequired,
+    list: PropTypes.object.isRequired,
+    auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
     list: state.list,
+    auth: state.auth
 });
 
 export default connect(mapStateToProps, { getLists, selectList })(ListContainer);

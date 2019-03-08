@@ -1,10 +1,9 @@
 import expect from 'expect';
 import * as authActions from '../../src/actions/authActions';
-import {ITEMS_LOADING, LOGGED_IN, LOGGED_OUT} from "../../src/actions/types";
+import { LOGGED_IN, LOGGED_OUT } from "../../src/actions/types";
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import moxios from 'moxios';
-import * as itemActions from "../../src/actions/itemActions";
 
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
