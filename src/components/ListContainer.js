@@ -35,7 +35,7 @@ class ListContainer extends Component {
             </Col>
         );
         else return (
-            {'No open orders'}
+            <div>{'No open orders'}</div>
         );
     }
 }

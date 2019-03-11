@@ -2,7 +2,6 @@ import {
     ADD_LIST,
     DELETE_LIST,
     LISTS_LOADING,
-    CLOSE_LIST,
     GET_LISTS,
     SELECT_LIST,
     UPDATE_LIST,

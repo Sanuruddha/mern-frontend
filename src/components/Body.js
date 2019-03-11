@@ -18,7 +18,6 @@ class Body extends Component {
         } else {
             this.props.history.push('/login');
         }
-        this.props.getItems();
     }
     render() {
         if (this.props.auth.loggedIn) {

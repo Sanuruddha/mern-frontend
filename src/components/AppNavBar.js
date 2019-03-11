@@ -26,26 +26,24 @@ export class AppNavBar extends Component {
     }
     render() {
         return (
-            <appnavbar>
-                <Navbar
-                    dark expand={'sm'}
-                    className={'mb-5 nav-bar custom-nav'}>
-                        <NavbarBrand href={'/'}>
-                            <img alt={'Logo'} src="/img/logo2.png" width="100"/><h1>Simple POS</h1></NavbarBrand>
-                        <NavbarToggler onClick={this.toggle}/>
-                        <Collapse isOpen={this.state.isOpen} navbar>
-                            <Nav className={'ml-auto'} navbar>
-                                <NavItem>
-                                    {
-                                    this.props.auth.loggedIn? (<NavLink href={'/logout'}>
-                                        Logout
-                                    </NavLink>) : ('')
-                                    }
-                                </NavItem>
-                            </Nav>
-                        </Collapse>
-                </Navbar>
-            </appnavbar>
+            <Navbar
+                dark expand={'sm'}
+                className={'mb-5 nav-bar custom-nav'}>
+                    <NavbarBrand href={'/'}>
+                        <img alt={'Logo'} src="/img/logo2.png" width="100"/><h1>Simple POS</h1></NavbarBrand>
+                    <NavbarToggler onClick={this.toggle}/>
+                    <Collapse isOpen={this.state.isOpen} navbar>
+                        <Nav className={'ml-auto'} navbar>
+                            <NavItem>
+                                {
+                                this.props.auth.loggedIn? (<NavLink href={'/logout'}>
+                                    Logout
+                                </NavLink>) : ('')
+                                }
+                            </NavItem>
+                        </Nav>
+                    </Collapse>
+            </Navbar>
         )
     }
 }

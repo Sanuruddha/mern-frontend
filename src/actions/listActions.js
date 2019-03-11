@@ -10,6 +10,12 @@ import {
 } from "./types";
 import axios from 'axios';
 
+export const clearList = () => {
+    return {
+        type:CLEAR_NEW_LIST,
+    }
+};
+
 export const createList = (list) => (dispatch) => {
     dispatch({
         type: CLEAR_NEW_LIST

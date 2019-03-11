@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
-import { updateNewList, createList } from '../actions/listActions';
+import { updateNewList, createList, clearList } from '../actions/listActions';
 
 class OrderForm extends Component {
     handleChange = (e) => {
@@ -17,14 +17,19 @@ class OrderForm extends Component {
         this.props.createList(this.props.list.newList);
     };
 
+    handleClear = (e) => {
+        e.preventDefault();
+        this.props.clearList(this.props.list.newList);
+    };
+
     render() {
         let number = 0;
         let total = 0;
         return (
-            <Form className={'order-form'} onSubmit={this.handleSubmit.bind(this)}>
+            <Form className={'order-form'}>
                 <FormGroup>
                     <Label for="exampleText">Customer Name</Label>
-                    <Input onChange={this.handleChange.bind(this)} type="text" name="name" id="exampleText" placeholder="Enter Name" />
+                    <Input value={this.props.list.newList.name} onChange={this.handleChange.bind(this)} type="text" name="name" id="exampleText" placeholder="Enter Name" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleSelect">Add Items</Label>
@@ -63,7 +68,15 @@ class OrderForm extends Component {
                         </table>
                     </div>
                 </FormGroup>
-                <Button>Submit</Button>
+                <Row>
+                    <Col/><Col/><Col/>
+                    <Col>
+                        <Button style={{border: '0', width: '100%'}} className={'dan'} onClick={this.handleClear.bind(this)}>Clear</Button>
+                    </Col>
+                    <Col>
+                        <Button style={{border: '0', width: '100%'}} className={'suc'} onClick={this.handleSubmit.bind(this)}>Submit</Button>
+                    </Col>
+                </Row>
             </Form>
         );
     }
@@ -73,7 +86,8 @@ OrderForm.propTypes = {
     list: PropTypes.object.isRequired,
     item: PropTypes.object.isRequired,
     updateNewList: PropTypes.func.isRequired,
-    createList: PropTypes.func.isRequired
+    createList: PropTypes.func.isRequired,
+    clearList: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -81,4 +95,4 @@ const mapStateToProps = (state) => ({
     item: state.item
 });
 
-export default connect(mapStateToProps, { updateNewList, createList })(OrderForm);
+export default connect(mapStateToProps, { updateNewList, createList, clearList })(OrderForm);

@@ -18,6 +18,9 @@ class ItemGrid extends Component {
             activeTab: ITEMS_TAB
         };
     }
+    componentDidMount() {
+        this.props.getItems();
+    }
 
     toggle(tab) {
         if (this.state.activeTab !== tab) {
@@ -82,14 +85,15 @@ class ItemGrid extends Component {
                 </Col>
             );
         else return (
-            {"No items to show"}
+            <div>{"No items to show"}</div>
         );
     }
 }
 
 ItemGrid.propTypes = {
     item: PropTypes.object.isRequired,
-    changeActiveTab: PropTypes.func.isRequired
+    changeActiveTab: PropTypes.func.isRequired,
+    getItems: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
