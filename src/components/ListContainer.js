@@ -22,8 +22,10 @@ class ListContainer extends Component {
 
     render() {
         const { lists } = this.props.list;
-        const renderLists = lists.filter(list => list.status !== 1 && list.items.length > 0);
-        return (
+        let renderLists = [];
+        if (lists)
+            renderLists = lists.filter(list => list.status !== 1 && list.items.length > 0);
+        if (renderLists.length > 0) return (
             <Col>
                 <Row className={'order-grid'}>
                     {renderLists.map(({_id, name}) => (
@@ -31,6 +33,9 @@ class ListContainer extends Component {
                     ))}
                 </Row>
             </Col>
+        );
+        else return (
+            {'No open orders'}
         );
     }
 }
