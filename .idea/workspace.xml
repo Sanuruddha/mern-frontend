@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="82cb307c-658f-4d7f-b2a1-f8132a6ebf5b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/actions/listActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/actions/listActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AppNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AppNavBar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Body.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Body.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ItemGrid.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemGrid.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ListContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ListContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/OrderForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/reducers/listReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reducers/listReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/actions/listActions.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/test/actions/listActions.test.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,13 +15,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/OrderForm.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="145">
-              <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+              <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/actions/listActions.test.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="151" column="56" selection-start-line="151" selection-start-column="56" selection-end-line="151" selection-end-column="56" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -71,7 +76,6 @@
         <option value="$PROJECT_DIR$/test/reducers/index.test.js" />
         <option value="$PROJECT_DIR$/src/actions/itemActions.js" />
         <option value="$PROJECT_DIR$/test/actions/itemActions.test.js" />
-        <option value="$PROJECT_DIR$/test/actions/listActions.test.js" />
         <option value="$PROJECT_DIR$/test/actions/tabActions.test.js" />
         <option value="$PROJECT_DIR$/src/actions/authActions.js" />
         <option value="$PROJECT_DIR$/jest.config.js" />
@@ -94,6 +98,7 @@
         <option value="$PROJECT_DIR$/src/reducers/listReducer.js" />
         <option value="$PROJECT_DIR$/src/actions/listActions.js" />
         <option value="$PROJECT_DIR$/src/components/OrderForm.js" />
+        <option value="$PROJECT_DIR$/test/actions/listActions.test.js" />
       </list>
     </option>
   </component>
@@ -153,6 +158,12 @@
               <item name="client" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="client" type="b2602c69:ProjectViewProjectNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="actions" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -202,12 +213,12 @@
       <workItem from="1552011303828" duration="33000" />
       <workItem from="1552025635645" duration="681000" />
       <workItem from="1552036384310" duration="3155000" />
-      <workItem from="1552273893050" duration="3435000" />
+      <workItem from="1552273893050" duration="3594000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74214000" />
+    <option name="totallyTimeSpent" value="74373000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -237,7 +248,7 @@
       <window_info anchor="bottom" id="Thumbnails" order="8" weight="0.3297587" />
       <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.33378017" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.41286862" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -524,16 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/actions/listActions.test.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="54" column="72" lean-forward="true" selection-start-line="54" selection-start-column="26" selection-end-line="54" selection-end-column="72" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/actions/authActions.test.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -650,9 +651,19 @@
     <entry file="file://$PROJECT_DIR$/src/components/OrderForm.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="145">
-          <caret line="28" column="43" lean-forward="true" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
+          <caret line="28" column="43" selection-start-line="28" selection-start-column="43" selection-end-line="28" selection-end-column="43" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/actions/listActions.test.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="151" column="56" selection-start-line="151" selection-start-column="56" selection-end-line="151" selection-end-column="56" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
           </folding>
         </state>
       </provider>

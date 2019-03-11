@@ -149,6 +149,13 @@ describe("list actions", () => {
         expect(listActions.selectList(id)).toEqual(expectedAction);
     });
 
+    it('clearList should create CLEAR_NEW_LIST', () => {
+        const expectedAction = {
+            type: CLEAR_NEW_LIST
+        };
+        expect(listActions.clearList()).toEqual(expectedAction);
+    });
+
     it('setListsLoading should create LISTS_LOADING', () => {
         const expectedAction = {
             type: LISTS_LOADING
