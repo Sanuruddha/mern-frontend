@@ -105,7 +105,7 @@ class OrderList extends Component {
                         ))}
                         </table>
                     </div>
-                    <p className="price"> {sum} LKR</p>
+                    <p className="price" style={{color: '#000000'}}> {sum} LKR</p>
                     <button className={'suc'} onClick={this.openOrder.bind(this)}>
                                     <span className={'icon-span'}>
                                         View
