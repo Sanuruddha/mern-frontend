@@ -28,7 +28,7 @@ class LeftGrid extends React.Component {
     }
     render() {
         return (
-            <Col className={"custom-grid"}>
+            <Col style={{paddingLeft: '0', paddingRight: '0'}}  className={"custom-grid"}>
                 <Nav tabs>
                     <NavItem>
                         <NavLink

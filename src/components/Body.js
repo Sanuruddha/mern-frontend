@@ -24,7 +24,7 @@ class Body extends Component {
             return (
                 <div>
                     <AppNavBar/>
-                    <Row>
+                    <Row style={{marginRight: '0', marginLeft: '0'}}>
                         <LeftGrid/>
                         <ItemGrid/>
                     </Row>
