@@ -89,18 +89,23 @@ class OrderList extends Component {
                             confirmColor={"danger"}
                             items={items}
                         />
-                        <div style={{backgroundColor : '#bfbfbf', padding: '5px'}}><h5>{name}</h5></div>
+                        <div style={{color: '#ffffff', backgroundColor : '#8b918b', padding: '5px'}}><h5>{name}</h5></div>
                         <table>
+                            <tr>
+                                <th style={{width: '120px'}} className={'td-left'}>Item</th>
+                                <th style={{width: '20px'}} className={'td-right'}>Qty</th>
+                                <th style={{width: '50px'}} className={'td-right'}>Price</th>
+                            </tr>
                         {items.map(item => (
                             <tr key={item._id}>
                                 <td style={{width: '120px'}} className={'td-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-                                <td style={{width: '10px'}} className={'td-right'}>{item.count}</td>
+                                <td style={{width: '20px'}} className={'td-right'}>{item.count}</td>
                                 <td style={{width: '50px'}} className={'td-right'}>{(item.price * item.count / 100).toFixed()}</td>
                             </tr>
                         ))}
                         </table>
-                        <p className="price"> {sum} LKR</p>
                     </div>
+                    <p className="price"> {sum} LKR</p>
                     <button className={'suc'} onClick={this.openOrder.bind(this)}>
                                     <span className={'icon-span'}>
                                         View

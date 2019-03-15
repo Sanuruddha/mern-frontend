@@ -124,14 +124,22 @@
 }
 
 .td-left {
-    padding-left: 5px;
+    padding-left: 10px;
     text-align: left;
+    /*border-bottom: rgba(0, 0, 0, 0.2) 1px solid;*/
 }
 
 .td-right {
+    padding-right: 10px;
     text-align: right;
+    /*border-bottom: rgba(0, 0, 0, 0.2) 1px solid;*/
 }
 
 .td-center {
     text-align: center;
+    /*border-bottom: rgba(0, 0, 0, 0.2) 1px solid;*/
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
 }

@@ -64,12 +64,11 @@ class Item extends Component {
         return (
             <div>
                 <Card>
-                    <CardHeader style={{padding: '5px', backgroundColor: '#bfbfbf'}}>
+                    <CardHeader style={{color: '#ffffff', backgroundColor : '#8b918b', padding: '5px'}}>
                         <CardTitle>
                             <h6>{item.name.toUpperCase()}</h6>
                         </CardTitle>
                     </CardHeader>
-                    <br/>
                     <CardImg top style={{width: "100%", height: "8vw"}}
                         src={`/img/fooditems/${item._id}.jpg`}
                              alt="Card image cap" />
