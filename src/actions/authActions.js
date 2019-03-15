@@ -4,7 +4,6 @@ import history from '../history'
 import { setAuthHeader } from "../utils/setHeaders";
 
 export const authenticate = (user) => dispatch => {
-
     return axios
         .post('/api/users/authenticate', user)
         .then(res => {

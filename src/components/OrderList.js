@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-import { Col } from 'reactstrap';
+import { Col, Table } from 'reactstrap';
 import { getItems } from '../actions/itemActions'
 import { closeList, removeList } from '../actions/listActions';
 import classnames from "classnames";
@@ -90,11 +90,15 @@ class OrderList extends Component {
                             items={items}
                         />
                         <div style={{backgroundColor : '#bfbfbf', padding: '5px'}}><h5>{name}</h5></div>
+                        <table>
                         {items.map(item => (
-                            <div key={item._id}>
-                                {item.name} | {item.count} | {(item.price * item.count / 100).toFixed()}
-                            </div>
+                            <tr key={item._id}>
+                                <td style={{width: '120px'}} className={'td-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
+                                <td style={{width: '10px'}} className={'td-right'}>{item.count}</td>
+                                <td style={{width: '50px'}} className={'td-right'}>{(item.price * item.count / 100).toFixed()}</td>
+                            </tr>
                         ))}
+                        </table>
                         <p className="price"> {sum} LKR</p>
                     </div>
                     <button className={'suc'} onClick={this.openOrder.bind(this)}>
@@ -103,47 +107,46 @@ class OrderList extends Component {
                                     </span>
                     </button>
                     <div className={'card-button-wrapper'}>
-                            <span className={'card-button'}>
-                                <div className={'button-wrapper'}>
-                                    <button className={'suc'} onClick={this.toggleCheckout.bind(this)}>
-                                        <span role="img" className={'icon-span'} aria-label="Check">
-                                            &#9989;
-                                        </span>
-                                    </button>
-                                    <ConfirmationModal
-                                        onConfirm={this.onCheckoutClick.bind(this)}
-                                        isOpen={this.state.checkoutConformationModal}
-                                        toggle={this.toggleCheckout.bind(this)}
-                                        modalBodyText={'Are you sure you want to check out this order?'}
-                                        modalHeader={'Confirmation'}
-                                        modalConfirmationLabel={'Checkout'}
-                                        modalCancelLabel={'Cancel'}
-                                        cancelColor={"secondary"}
-                                        confirmColor={"success"}
-                                    />
-                                </div>
-                            </span>
                         <span className={'card-button'}>
-                                <div className={'button-wrapper'}>
-                                    <button className={'dan'} onClick={this.toggle.bind(this)}>
-                                        <span className={'icon-span'}>
-                                            &times;
-                                        </span>
-                                    </button>
-                                    <ConfirmationModal
-                                        onConfirm={this.onDeleteClick.bind(this)}
-                                        isOpen={this.state.confirmationModal}
-                                        toggle={this.toggle.bind(this)}
-                                        modalBodyText={'You are about to delete an Order List. Are you sure you want to delete?'}
-                                        modalHeader={'Confirmation'}
-                                        modalConfirmationLabel={'Delete'}
-                                        modalCancelLabel={'Cancel'}
-                                        cancelColor={"secondary"}
-                                        confirmColor={"danger"}
-                                    />
-                                </div>
-                            </span>
-
+                            <div className={'button-wrapper'}>
+                                <button className={'suc'} onClick={this.toggleCheckout.bind(this)}>
+                                    <span role="img" className={'icon-span'} aria-label="Check">
+                                        &#9989;
+                                    </span>
+                                </button>
+                                <ConfirmationModal
+                                    onConfirm={this.onCheckoutClick.bind(this)}
+                                    isOpen={this.state.checkoutConformationModal}
+                                    toggle={this.toggleCheckout.bind(this)}
+                                    modalBodyText={'Are you sure you want to check out this order?'}
+                                    modalHeader={'Confirmation'}
+                                    modalConfirmationLabel={'Checkout'}
+                                    modalCancelLabel={'Cancel'}
+                                    cancelColor={"secondary"}
+                                    confirmColor={"success"}
+                                />
+                            </div>
+                        </span>
+                        <span className={'card-button'}>
+                            <div className={'button-wrapper'}>
+                                <button className={'dan'} onClick={this.toggle.bind(this)}>
+                                    <span className={'icon-span'}>
+                                        &times;
+                                    </span>
+                                </button>
+                                <ConfirmationModal
+                                    onConfirm={this.onDeleteClick.bind(this)}
+                                    isOpen={this.state.confirmationModal}
+                                    toggle={this.toggle.bind(this)}
+                                    modalBodyText={'You are about to delete an Order List. Are you sure you want to delete?'}
+                                    modalHeader={'Confirmation'}
+                                    modalConfirmationLabel={'Delete'}
+                                    modalCancelLabel={'Cancel'}
+                                    cancelColor={"secondary"}
+                                    confirmColor={"danger"}
+                                />
+                            </div>
+                        </span>
                     </div>
                 </div>
             </Col>

@@ -31,7 +31,7 @@ export const createList = (list) => (dispatch) => {
 export const getLists = (id) => (dispatch) => {
     dispatch(setListsLoading());
     return axios
-        .get(`/api/lists/${id}`)
+        .get(`/api/lists/user/${id}`)
         .then(res => dispatch({
             type: GET_LISTS,
             payload: res.data
