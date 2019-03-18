@@ -72,7 +72,7 @@ class OrderList extends Component {
             sum = items.map(item => item.price * item.count / 100).reduce((total, value) => total + value, 0).toFixed(2);
         }
         return (
-            <Col className={'limited-padding'} lg="3">
+            <Col className={'limited-padding'} sm="4">
                 <div
                     onClick={this.setActiveList.bind(this, _id)}
                     className={classnames({ active_list: this.props.activeList === _id }, 'card')}>
@@ -99,11 +99,11 @@ class OrderList extends Component {
                             </tr>
                         {items.map(item => (
                             <tr key={item._id}>
-                                <td style={{width: '50%'}} className={'text-left small'}>{
+                                <td style={{width: '50%'}} className={'text-left'}>{
                                     item.name.charAt(0).toUpperCase() + item.name.slice(1)
                                 }</td>
-                                <td style={{width: '10%'}} className={'text-right small'}>{item.count}</td>
-                                <td style={{width: '40%'}} className={'text-right small'}>{(item.price * item.count / 100).toFixed(2)}</td>
+                                <td style={{width: '10%'}} className={'text-right'}>{item.count}</td>
+                                <td style={{width: '40%'}} className={'text-right'}>{(item.price * item.count / 100).toFixed(2)}</td>
                             </tr>
                         ))}
                             </tbody>

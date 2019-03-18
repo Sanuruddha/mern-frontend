@@ -73,7 +73,7 @@ class Item extends Component {
                         src={`/img/fooditems/${item._id}.jpg`}
                              alt="Card image cap" />
                     <CardBody className={'p-1'}>
-                        <CardText className={'p-1 mb-1'}>{item.price / 100 + ' LKR'}</CardText>
+                        <CardText className={'p-1 mb-1'}>{(item.price / 100).toFixed(2) + ' LKR'}</CardText>
                         <Button className={'add-btn'} color={'success'}
                                 onClick={this.addToList.bind(this)}
                         >
