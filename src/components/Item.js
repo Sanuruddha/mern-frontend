@@ -69,16 +69,15 @@ class Item extends Component {
                             <h6>{item.name.toUpperCase()}</h6>
                         </CardTitle>
                     </CardHeader>
-                    <CardImg top style={{width: "100%", height: "8vw"}}
+                    <CardImg top style={{width: "100%"}} className={'p-1'}
                         src={`/img/fooditems/${item._id}.jpg`}
                              alt="Card image cap" />
-                    <CardBody style={{padding:'10px'}}>
-                        <CardText style={{marginBottom:'10px'}}>{item.price / 100 + ' LKR'}</CardText>
-                        <Button className={'float-right'} color={'success'}
-                                style={{marginLeft: '1rem'}}
+                    <CardBody className={'p-1'}>
+                        <CardText className={'p-1 mb-1'}>{item.price / 100 + ' LKR'}</CardText>
+                        <Button className={'add-btn'} color={'success'}
                                 onClick={this.addToList.bind(this)}
                         >
-                            &#43;
+                            <i className="fa fa-plus"></i>
                         </Button>
                     </CardBody>
                 </Card>

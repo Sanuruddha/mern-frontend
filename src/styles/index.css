@@ -89,10 +89,6 @@
 
 }
 
-.button-wrapper {
-    padding: 5px;
-    margin: auto;
-}
 
 .suc .icon-span {
     font-size: 20px;
@@ -142,4 +138,8 @@
 
 tr:nth-child(even) {
     background-color: #dddddd;
+}
+
+.view-btn {
+    width: inherit !important;
 }

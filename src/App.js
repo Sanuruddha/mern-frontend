@@ -6,6 +6,7 @@ import Login from './components/Login';
 import { Router, Route } from 'react-router-dom'
 import history from './history'
 import Logout from './components/Logout';
+import 'font-awesome/css/font-awesome.min.css';
 
 
 

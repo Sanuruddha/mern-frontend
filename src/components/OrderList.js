@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
-import { Col, Table } from 'reactstrap';
+import { Col } from 'reactstrap';
 import { getItems } from '../actions/itemActions'
 import { closeList, removeList } from '../actions/listActions';
 import classnames from "classnames";
@@ -89,34 +89,36 @@ class OrderList extends Component {
                             confirmColor={"danger"}
                             items={items}
                         />
-                        <div style={{color: '#ffffff', backgroundColor : '#8b918b', padding: '5px'}}><h5>{name}</h5></div>
+                        <div className={'.card-header:first-child'} style={{color: '#ffffff', backgroundColor : '#8b918b', padding: '5px'}}><h5>{name}</h5></div>
                         <table>
+                            <tbody>
                             <tr>
-                                <th style={{width: '120px'}} className={'td-left'}>Item</th>
-                                <th style={{width: '20px'}} className={'td-right'}>Qty</th>
-                                <th style={{width: '50px'}} className={'td-right'}>Price</th>
+                                <th style={{width: '65%'}} className={'td-left'}>Item</th>
+                                <th style={{width: '10%'}} className={'td-right'}>Qty</th>
+                                <th style={{width: '25%'}} className={'td-right'}>Price</th>
                             </tr>
                         {items.map(item => (
                             <tr key={item._id}>
-                                <td style={{width: '120px'}} className={'td-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-                                <td style={{width: '20px'}} className={'td-right'}>{item.count}</td>
-                                <td style={{width: '50px'}} className={'td-right'}>{(item.price * item.count / 100).toFixed()}</td>
+                                <td style={{width: '65%'}} className={'td-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
+                                <td style={{width: '10%'}} className={'td-right'}>{item.count}</td>
+                                <td style={{width: '25%'}} className={'td-right'}>{(item.price * item.count / 100).toFixed()}</td>
                             </tr>
                         ))}
+                            </tbody>
                         </table>
                     </div>
                     <p className="price" style={{color: '#000000'}}> {sum} LKR</p>
-                    <button className={'suc'} onClick={this.openOrder.bind(this)}>
+                    <button className={'suc ml-1 mr-1 mt-1 view-btn'} onClick={this.openOrder.bind(this)}>
                                     <span className={'icon-span'}>
                                         View
                                     </span>
                     </button>
-                    <div className={'card-button-wrapper'}>
+                    <div className={'card-button-wrapper m-1'}>
                         <span className={'card-button'}>
-                            <div className={'button-wrapper'}>
+                            <div>
                                 <button className={'suc'} onClick={this.toggleCheckout.bind(this)}>
                                     <span role="img" className={'icon-span'} aria-label="Check">
-                                        &#9989;
+                                        <i className="fa fa-check"></i>
                                     </span>
                                 </button>
                                 <ConfirmationModal
@@ -133,10 +135,10 @@ class OrderList extends Component {
                             </div>
                         </span>
                         <span className={'card-button'}>
-                            <div className={'button-wrapper'}>
+                            <div>
                                 <button className={'dan'} onClick={this.toggle.bind(this)}>
                                     <span className={'icon-span'}>
-                                        &times;
+                                        <i className="fa fa-times"></i>
                                     </span>
                                 </button>
                                 <ConfirmationModal
