@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row ,Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { addToList, removeFromList } from "../actions/listActions";
@@ -27,42 +27,41 @@ class OpenOrderModal extends React.Component {
                     <ModalBody>
                         <table style={{width: '100%'}}>
                             <tbody>
-                            <tr>
-                                <th>Item</th>
-                                <th className={'text-right'}>Count</th>
-                                <th className={'text-right'}>Price</th>
-                                <th className={'text-right'}>Add/Remove</th>
-                            </tr>
-                        {this.props.items.map(item => {
-                            total = total + item.price * item.count / 100
-                            return (
-                                <tr key={item._id}>
-                                    <td>
-                                        {item.name}
-                                    </td>
-                                    <td className={'text-right'}>
-                                        {item.count}
-                                    </td>
-                                    <td className={'text-right'}>
-                                        {(item.price * item.count / 100).toFixed()}
-                                    </td>
-                                    <td className={'text-right'}>
-                                    <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
-                                        <i className="fa fa-plus"></i>
-                                    </button>
-                                        <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
-                                            <i className="fa fa-minus"></i>
-                                        </button>
+                                <tr>
+                                    <th>Item</th>
+                                    <th className={'text-right'}>Count</th>
+                                    <th className={'text-right'}>Price</th>
+                                    <th className={'text-right'}>Add/Remove</th>
+                                </tr>
+                                {this.props.items.map(item => {
+                                    total = total + item.price * item.count / 100
+                                    return (
+                                        <tr key={item._id}>
+                                            <td>
+                                                {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
+                                            </td>
+                                            <td className={'text-right'}>
+                                                {item.count}
+                                            </td>
+                                            <td className={'text-right'}>
+                                                {(item.price * item.count / 100).toFixed()}
+                                            </td>
+                                            <td className={'text-right'}>
+                                            <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
+                                                <i className="fa fa-plus"></i>
+                                            </button>
+                                                <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
+                                                    <i className="fa fa-minus"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+                                <tr>
+                                    <td colspan="4" className={'text-right'}>
+                                        <b>{'Total :'}{total.toString()}</b>
                                     </td>
                                 </tr>
-                            )
-                        })}
-                        <tr>
-                            <td colspan="4" className={'text-right'}>
-                                {'Total :'}
-                                {total.toString()}
-                            </td>
-                        </tr>
                             </tbody>
                         </table>
                     </ModalBody>

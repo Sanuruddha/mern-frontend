@@ -93,15 +93,17 @@ class OrderList extends Component {
                         <table className={'m-1 border'}>
                             <tbody>
                             <tr>
-                                <th style={{width: '65%'}} className={'text-left'}>Item</th>
+                                <th style={{width: '50%'}} className={'text-left'}>Item</th>
                                 <th style={{width: '10%'}} className={'text-right'}>Qty</th>
-                                <th style={{width: '25%'}} className={'text-right'}>Price</th>
+                                <th style={{width: '40%'}} className={'text-right'}>Price</th>
                             </tr>
                         {items.map(item => (
                             <tr key={item._id}>
-                                <td style={{width: '65%'}} className={'text-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-                                <td style={{width: '10%'}} className={'text-right'}>{item.count}</td>
-                                <td style={{width: '25%'}} className={'text-right'}>{(item.price * item.count / 100).toFixed(2)}</td>
+                                <td style={{width: '50%'}} className={'text-left small'}>{
+                                    item.name.charAt(0).toUpperCase() + item.name.slice(1)
+                                }</td>
+                                <td style={{width: '10%'}} className={'text-right small'}>{item.count}</td>
+                                <td style={{width: '40%'}} className={'text-right small'}>{(item.price * item.count / 100).toFixed(2)}</td>
                             </tr>
                         ))}
                             </tbody>
