@@ -69,7 +69,7 @@ class OrderList extends Component {
         }).filter(listitem => listitem !== false);
         let sum = 0;
         if (items.length > 0) {
-            sum = items.map(item => item.price * item.count / 100).reduce((total, value) => total + value, 0).toFixed();
+            sum = items.map(item => item.price * item.count / 100).reduce((total, value) => total + value, 0).toFixed(2);
         }
         return (
             <Col className={'limited-padding'} lg="3">
@@ -90,18 +90,18 @@ class OrderList extends Component {
                             items={items}
                         />
                         <div className={'.card-header:first-child'} style={{color: '#ffffff', backgroundColor : '#8b918b', padding: '5px'}}><h5>{name}</h5></div>
-                        <table>
+                        <table className={'m-1 border'}>
                             <tbody>
                             <tr>
-                                <th style={{width: '65%'}} className={'td-left'}>Item</th>
-                                <th style={{width: '10%'}} className={'td-right'}>Qty</th>
-                                <th style={{width: '25%'}} className={'td-right'}>Price</th>
+                                <th style={{width: '65%'}} className={'text-left'}>Item</th>
+                                <th style={{width: '10%'}} className={'text-right'}>Qty</th>
+                                <th style={{width: '25%'}} className={'text-right'}>Price</th>
                             </tr>
                         {items.map(item => (
                             <tr key={item._id}>
-                                <td style={{width: '65%'}} className={'td-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
-                                <td style={{width: '10%'}} className={'td-right'}>{item.count}</td>
-                                <td style={{width: '25%'}} className={'td-right'}>{(item.price * item.count / 100).toFixed()}</td>
+                                <td style={{width: '65%'}} className={'text-left'}>{item.name.charAt(0).toUpperCase() + item.name.slice(1)}</td>
+                                <td style={{width: '10%'}} className={'text-right'}>{item.count}</td>
+                                <td style={{width: '25%'}} className={'text-right'}>{(item.price * item.count / 100).toFixed(2)}</td>
                             </tr>
                         ))}
                             </tbody>

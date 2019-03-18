@@ -25,40 +25,46 @@ class OpenOrderModal extends React.Component {
                 <Modal centered={true} fade={false} isOpen={this.props.isOpen} toggle={this.toggleModal.bind(this)}>
                     <ModalHeader toggle={this.toggleModal.bind(this)}>{this.props.modalHeader}</ModalHeader>
                     <ModalBody>
+                        <table style={{width: '100%'}}>
+                            <tbody>
+                            <tr>
+                                <th>Item</th>
+                                <th className={'text-right'}>Count</th>
+                                <th className={'text-right'}>Price</th>
+                                <th className={'text-right'}>Add/Remove</th>
+                            </tr>
                         {this.props.items.map(item => {
                             total = total + item.price * item.count / 100
                             return (
-                                <div key={item._id}>
-                                    <Row>
-                                        <Col sm={10}>
-                                            {item.name} | {item.count} | {(item.price * item.count / 100).toFixed()}</Col>
-                                        <Col sm={2}>
-                                            <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
-                                                +
-                                            </button>
-                                            <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
-                                                -
-                                            </button>
-                                        </Col>
-                                    </Row>
-                                </div>
-
+                                <tr key={item._id}>
+                                    <td>
+                                        {item.name}
+                                    </td>
+                                    <td className={'text-right'}>
+                                        {item.count}
+                                    </td>
+                                    <td className={'text-right'}>
+                                        {(item.price * item.count / 100).toFixed()}
+                                    </td>
+                                    <td className={'text-right'}>
+                                    <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
+                                        <i className="fa fa-plus"></i>
+                                    </button>
+                                        <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
+                                            <i className="fa fa-minus"></i>
+                                        </button>
+                                    </td>
+                                </tr>
                             )
                         })}
-                        {
-                            <div>
-                                <br/>
-                                <Row>
-                                    <Col sm={8}></Col>
-                                    <Col sm={2}>
-                                        {'Total :'}
-                                    </Col>
-                                    <Col sm={2}>
-                                        {total.toString()}
-                                    </Col>
-                                </Row>
-                            </div>
-                        }
+                        <tr>
+                            <td colspan="4" className={'text-right'}>
+                                {'Total :'}
+                                {total.toString()}
+                            </td>
+                        </tr>
+                            </tbody>
+                        </table>
                     </ModalBody>
                     <ModalFooter>
                         <Button color={this.props.cancelColor}  onClick={this.toggleModal.bind(this)}>{this.props.modalCancelLabel}</Button>
