@@ -9,7 +9,8 @@ class ItemForm extends Component {
     state = {
         name: '',
         description: '',
-        price: 0
+        price: 0,
+        avatar: ''
     };
 
     handleChange = (e) => {
@@ -17,14 +18,22 @@ class ItemForm extends Component {
             [e.target.name]: e.target.value
         });
     };
+
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.addItem({
-            name: this.state.name,
-            description: this.state.description,
-            price: this.state.price * 100
-        });
+        let formData = new FormData();
+        formData.append('name', this.state.name);
+        formData.append('description', this.state.description);
+        formData.append('price', this.state.price * 100);
+        formData.append('avatar', this.state.avatar);
+        this.props.addItem(formData);
+    };
 
+    getPhoto = (e) => {
+        e.preventDefault();
+        this.setState({
+                avatar: e.target.files[0]
+        });
     };
 
     render() {
@@ -45,9 +54,11 @@ class ItemForm extends Component {
                 <FormGroup>
                     <Label for="exampleText">Add Image</Label>
                     <br/>
-                    <input type="file"
-                           id="avatar" name="avatar"
-                           accept="image/png, image/jpeg"/>
+                    <input
+                        onChange={this.getPhoto.bind(this)}
+                        type="file"
+                        id="avatar" name="avatar"
+                        accept="image/png, image/jpeg"/>
                 </FormGroup>
                 <Button>Submit</Button>
             </Form>
