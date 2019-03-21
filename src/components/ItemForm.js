@@ -9,7 +9,7 @@ class ItemForm extends Component {
     state = {
         name: '',
         description: '',
-        price: 0,
+        price: '',
         avatar: ''
     };
 
@@ -27,6 +27,12 @@ class ItemForm extends Component {
         formData.append('price', this.state.price * 100);
         formData.append('avatar', this.state.avatar);
         this.props.addItem(formData);
+        this.setState({
+            name: '',
+            description: '',
+            price: '',
+            avatar: ''
+        });
     };
 
     getPhoto = (e) => {
@@ -41,15 +47,15 @@ class ItemForm extends Component {
             <Form className={'order-form'} onSubmit={this.handleSubmit.bind(this)}>
                 <FormGroup>
                     <Label for="exampleText">Name</Label>
-                    <Input onChange={this.handleChange.bind(this)} type="text" name="name" id="exampleText" placeholder="Enter Name" />
+                    <Input value={this.state.name} onChange={this.handleChange.bind(this)} type="text" name="name" id="exampleText" placeholder="Enter Name" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleText">Description</Label>
-                    <Input onChange={this.handleChange.bind(this)} type="tel" name="description" id="exampleText" placeholder="Add description" />
+                    <Input value={this.state.description} onChange={this.handleChange.bind(this)} type="tel" name="description" id="exampleText" placeholder="Add description" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleText">Price</Label>
-                    <Input onChange={this.handleChange.bind(this)} type="number" name="price" id="exampleText" placeholder="Price" />
+                    <Input value={this.state.price} onChange={this.handleChange.bind(this)} type="number" name="price" id="exampleText" placeholder="Price" />
                 </FormGroup>
                 <FormGroup>
                     <Label for="exampleText">Add Image</Label>
