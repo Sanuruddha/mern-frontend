@@ -22,7 +22,6 @@ export const deleteItem = (id) => (dispatch) => {
 };
 
 export const addItem = item => (dispatch) => {
-    console.log(item);
     return axios
         .post('/api/items', item)
         .then(res =>
