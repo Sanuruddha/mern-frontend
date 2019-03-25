@@ -11,17 +11,45 @@ class OrderForm extends Component {
                 [e.target.name] : e.target.value
         });
     };
-
     handleSubmit = (e) => {
         e.preventDefault();
         this.props.createList(this.props.list.newList);
     };
-
     handleClear = (e) => {
         e.preventDefault();
         this.props.clearList(this.props.list.newList);
     };
+    handleIncrement = (id, e) => {
+        e.preventDefault();
+        let index = this.props.list.newList.items.map(item => item.id ).indexOf(id);
+        let updatedItems = [];
+        if (index > -1)
+            updatedItems = this.props.list.newList.items.map(item => {
+                if (item.id === id) {
+                    item.count++;
+                }
+                return item;
+            });
+        this.props.updateNewList({
+            ...this.props.list.newList,
+            items: updatedItems
+        });
+    };
 
+    handleDecrement = (id, e) => {
+        e.preventDefault();
+        let index = this.props.list.newList.items.map(item => item.id ).indexOf(id);
+        let updatedItems = [...this.props.list.newList.items];
+        if (index > -1)
+            if (updatedItems[index].count > 1)
+                updatedItems[index].count --;
+            else if (updatedItems[index].count === 1)
+                updatedItems.splice(index, 1);
+        this.props.updateNewList({
+            ...this.props.list.newList,
+            items: updatedItems
+        });
+    };
     render() {
         let number = 0;
         let total = 0;
@@ -37,10 +65,11 @@ class OrderForm extends Component {
                         <table className="table">
                             <thead className="thead-light">
                             <tr>
-                                <th scope="col">#</th>
-                                <th scope="col">Item</th>
-                                <th scope="col">Count</th>
-                                <th scope="col">Price</th>
+                                <th scope="col" className="td-left">#</th>
+                                <th scope="col" className="td-left">Item</th>
+                                <th scope="col" className="td-right">Count</th>
+                                <th scope="col" className="td-right">Price</th>
+                                <th scope="col" className="td-right">+/-</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -51,18 +80,23 @@ class OrderForm extends Component {
                                 total += item.price * item.count / 100;
                                 return (
                                     <tr key={item._id}>
-                                        <th scope="row">{++number}</th>
-                                        <td>{item.name}</td>
-                                        <td>{item.count}</td>
-                                        <td>{item.price * item.count / 100}</td>
+                                        <th scope="row" className="td-left">{++number}</th>
+                                        <td className="td-left">{item.name}</td>
+                                        <td className="td-right">{item.count}</td>
+                                        <td className="td-right">{item.price * item.count / 100}</td>
+                                        <td className="td-right">
+                                            <button onClick={this.handleIncrement.bind(this, item._id)}>+</button>
+                                            <button onClick={this.handleDecrement.bind(this, item._id)}>-</button>
+                                        </td>
                                     </tr>
                                 )
                             })}
                             <tr>
                                 <th scope="col">{""}</th>
                                 <th scope="col">{""}</th>
-                                <th scope="col">{total? "Total": ""}</th>
-                                <th scope="col">{total? total: ''}</th>
+                                <th scope="col">{""}</th>
+                                <th scope="col" className="td-right">{total? "Total": ""}</th>
+                                <th scope="col" className="td-right">{total? total: ''}</th>
                             </tr>
                             </tbody>
                         </table>
