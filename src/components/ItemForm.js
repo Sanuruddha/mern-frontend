@@ -3,14 +3,16 @@ import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {connect} from "react-redux";
 import PropTypes from "prop-types";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 class ItemForm extends Component {
 
     state = {
         name: '',
         description: '',
-        price: '',
-        avatar: ''
+        price: 0,
+        avatar: '',
     };
 
     handleChange = (e) => {
@@ -19,18 +21,27 @@ class ItemForm extends Component {
         });
     };
 
+
+    showError = (error, type) => toast(error,  { type, autoClose: 2000, hideProgressBar: true});
+
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log(typeof this.state.avatar);
+
         let formData = new FormData();
+        if (!this.state.name.length > 0) return this.showError('Invalid item name', 'error');
         formData.append('name', this.state.name);
+        if (!this.state.description.length > 0) return this.showError('Invalid item description', 'error');
         formData.append('description', this.state.description);
+        if (this.state.price === 0) return this.showError('Invalid item price', 'error');
         formData.append('price', this.state.price * 100);
+        if (!this.state.avatar) return this.showError('Invalid item image', 'error');
         formData.append('avatar', this.state.avatar);
         this.props.addItem(formData);
         this.setState({
             name: '',
             description: '',
-            price: '',
+            price: 0,
             avatar: ''
         });
     };
@@ -45,6 +56,7 @@ class ItemForm extends Component {
     render() {
         return (
             <Form className={'order-form'} onSubmit={this.handleSubmit.bind(this)}>
+                <ToastContainer newestOnTop/>
                 <FormGroup>
                     <Label for="exampleText">Name</Label>
                     <Input value={this.state.name} onChange={this.handleChange.bind(this)} type="text" name="name" id="exampleText" placeholder="Enter Name" />
