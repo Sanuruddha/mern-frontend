@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { Row} from 'reactstrap';
 import { Redirect } from "react-router";
-import ItemGrid from './ItemGrid';
+import ItemGrid from './RightGrid';
 import AppNavBar from './AppNavBar';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";

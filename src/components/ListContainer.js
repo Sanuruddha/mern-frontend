@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {  getLists, selectList } from "../actions/listActions";
 import OrderList from './OrderList';
-import { Row, Col } from "reactstrap";
+import { Row, Col, Spinner } from "reactstrap";
 
 class ListContainer extends Component {
     state = {
@@ -21,21 +21,33 @@ class ListContainer extends Component {
     };
 
     render() {
-        const { lists } = this.props.list;
+        const { lists, loading } = this.props.list;
         let renderLists = [];
         if (lists)
             renderLists = lists.filter(list => list.status !== 1 && list.items.length > 0);
-        if (renderLists.length > 0) return (
+        if (!loading) {
+            if (lists.length > 0) {
+                return (
+                    <Col>
+                        <Row className={'order-grid'}>
+                            {renderLists.map(({_id, name}) => (
+                                <OrderList activeList={this.state.activeList} key={_id} name={name} id={_id}
+                                           setActiveList={this.setActiveList}/>
+                            ))}
+                        </Row>
+                    </Col>)
+            } else {
+                return (
+                    <Col>
+                        <h4>No lists to display</h4>
+                    </Col>
+                )
+            }
+
+        } else return (
             <Col>
-                <Row className={'order-grid'}>
-                    {renderLists.map(({_id, name}) => (
-                        <OrderList activeList={this.state.activeList} key={_id} name={name} id={_id} setActiveList={this.setActiveList}/>
-                    ))}
-                </Row>
+                <Spinner style={{ width: '3rem', height: '3rem' }} />
             </Col>
-        );
-        else return (
-            <div>{'No open orders'}</div>
         );
     }
 }

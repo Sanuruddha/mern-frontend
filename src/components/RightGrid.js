@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import {Container, Row, Col, Nav, NavItem, NavLink, TabContent, TabPane} from 'reactstrap';
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import Item from "./Item";
+import { Row, Col, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
 import { connect } from "react-redux";
 import { deleteItem, getItems } from "../actions/itemActions";
 import PropTypes from "prop-types";
@@ -9,8 +7,9 @@ import classnames from "classnames";
 import ItemForm from "./ItemForm";
 import { NEW_ITEM_TAB, ITEMS_TAB } from '../utils/consts';
 import { changeActiveTab } from "../actions/tabActions";
+import ItemGridTab from './ItemGridTab';
 
-class ItemGrid extends Component {
+class RightGrid extends Component {
     constructor(props) {
         super(props);
         this.toggle = this.toggle.bind(this);
@@ -31,8 +30,7 @@ class ItemGrid extends Component {
         }
     }
     render() {
-        const { items } = this.props.item;
-        if (items) return (
+        return (
                 <Col style={{paddingLeft: '0', paddingRight: '0'}} className={'custom-grid'}>
                     <Nav tabs>
                         <NavItem>
@@ -56,21 +54,7 @@ class ItemGrid extends Component {
                         <TabPane tabId={ITEMS_TAB}>
                             <Row>
                                 <Col sm="12">
-                                    <Container>
-                                        <Row className={'item-grid-wrapper'}>
-                                            {items.map((item) => (
-                                                <Col  className={'limited-padding'} key={item._id} sm="12" md="6" lg="3">
-                                                    <TransitionGroup className={"shopping-list"}>
-                                                        <CSSTransition  key={item._id}
-                                                                        timeout={500}
-                                                                        classNames={'fade'}>
-                                                            <Item selfItem={item}/>
-                                                        </CSSTransition>
-                                                    </TransitionGroup>
-                                                </Col>
-                                            ))}
-                                        </Row>
-                                    </Container>
+                                    <ItemGridTab/>
                                 </Col>
                             </Row>
                         </TabPane>
@@ -84,20 +68,15 @@ class ItemGrid extends Component {
                     </TabContent>
                 </Col>
             );
-        else return (
-            <div>{"No items to show"}</div>
-        );
     }
 }
 
-ItemGrid.propTypes = {
-    item: PropTypes.object.isRequired,
+RightGrid.propTypes = {
     changeActiveTab: PropTypes.func.isRequired,
     getItems: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-    item: state.item,
 });
 
-export default connect(mapStateToProps, {getItems, deleteItem, changeActiveTab})(ItemGrid);
+export default connect(mapStateToProps, {getItems, deleteItem, changeActiveTab})(RightGrid);
