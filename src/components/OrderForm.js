@@ -3,7 +3,7 @@ import { Button, Form, FormGroup, Label, Input, Row, Col } from 'reactstrap';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
 import { updateNewList, createList, clearList } from '../actions/listActions';
-import {toast, ToastContainer} from "react-toastify";
+import {toast} from "react-toastify";
 
 class OrderForm extends Component {
     handleChange = (e) => {
@@ -12,11 +12,11 @@ class OrderForm extends Component {
                 [e.target.name] : e.target.value
         });
     };
-    showError = (error, type) => toast(error,  { type, autoClose: 2000, hideProgressBar: true});
+    showToast = (error, type) => toast(error,  { type, autoClose: 2000, hideProgressBar: true});
     handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.props.list.newList.name.length > 0) return this.showError('Invalid list name', 'error');
-        if (!this.props.list.newList.items.length > 0) return this.showError('Number of items in the list cannot be 0', 'error');
+        if (!this.props.list.newList.name.length > 0) return this.showToast('Invalid list name', 'error');
+        if (!this.props.list.newList.items.length > 0) return this.showToast('Number of items in the list cannot be 0', 'error');
         this.props.createList(this.props.list.newList);
     };
     handleClear = (e) => {
@@ -60,7 +60,6 @@ class OrderForm extends Component {
         let total = 0;
         return (
             <Form className={'order-form'}>
-                <ToastContainer newestOnTop/>
                 <FormGroup>
                     <Label for="exampleText">Customer Name</Label>
                     <Input value={this.props.list.newList.name} onChange={this.handleChange.bind(this)} type="text" name="name" id="exampleText" placeholder="Enter Name" />

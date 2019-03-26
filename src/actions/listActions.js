@@ -9,6 +9,7 @@ import {
     CLEAR_NEW_LIST
 } from "./types";
 import axios from 'axios';
+import {toast} from "react-toastify";
 
 export const clearList = () => {
     return {
@@ -22,10 +23,13 @@ export const createList = (list) => (dispatch) => {
     });
     return axios
         .post(`/api/lists`, list)
-        .then(res => dispatch({
-            type: ADD_LIST,
-            payload: res.data
-        }))
+        .then(res => {
+            dispatch({
+                type: ADD_LIST,
+                payload: res.data
+            });
+            toast('List added successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
+        });
 };
 
 export const getLists = (id) => (dispatch) => {
@@ -45,7 +49,8 @@ export const removeList = (id) => (dispatch) => {
             dispatch({
                 type: DELETE_LIST,
                 payload: res.data._id
-            })
+            });
+            toast('List deleted successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
         });
 
 };
@@ -62,6 +67,7 @@ export const closeList = list => (dispatch) => {
                     type: ADD_LIST,
                     payload: res.data
                 });
+            toast('List checked out successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
         }).catch(
 
     );

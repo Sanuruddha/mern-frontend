@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import { Row} from 'reactstrap';
 import { Redirect } from "react-router";
 import ItemGrid from './RightGrid';
@@ -9,6 +8,8 @@ import {connect} from "react-redux";
 import { authenticateWithToken } from "../actions/authActions";
 import { getItems } from "../actions/itemActions";
 import LeftGrid from "./LeftGrid";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 class Body extends Component {
     componentDidMount() {
@@ -24,6 +25,7 @@ class Body extends Component {
             return (
                 <div>
                     <AppNavBar/>
+                    <ToastContainer newestOnTop pauseOnFocusLoss={false}/>
                     <Row style={{marginRight: '0', marginLeft: '0'}}>
                         <LeftGrid/>
                         <ItemGrid/>
