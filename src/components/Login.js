@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    Container, Col, Form,
+    Container, Row, Form,
     FormGroup, Label, Input,
     Button,
 } from 'reactstrap';
@@ -10,6 +10,7 @@ import { authenticate, authenticateWithToken } from "../actions/authActions";
 import AppNavBar from './AppNavBar';
 import { Redirect } from 'react-router';
 import history from '../history';
+import '../styles/index.css';
 
 class Login extends Component {
     state = {
@@ -47,11 +48,11 @@ class Login extends Component {
             return (
                 <div>
                     <AppNavBar/>
-                    <Container className="App col-6">
-                        <h2>Sign In</h2>
+                    <Container style={{maxWidth: '30rem', minWidth: '20rem'}} className="App col-6">
+                        <h2 style={{textAlign: 'center', paddingTop: '6rem'}}>Sign In</h2>
                         <Form className="form">
-                            <Col>
-                                <FormGroup>
+                            <Row className={'added-padding'}>
+                                <FormGroup style={{width: '100%'}}>
                                     <Label>Username</Label>
                                     <Input
                                         type="text"
@@ -60,9 +61,9 @@ class Login extends Component {
                                         onChange={this.handleChange.bind(this)}
                                     />
                                 </FormGroup>
-                            </Col>
-                            <Col>
-                                <FormGroup>
+                            </Row>
+                            <Row className={'added-padding'}>
+                                <FormGroup style={{width: '100%'}}>
                                     <Label for="examplePassword">Password</Label>
                                     <Input
                                         type="password"
@@ -72,10 +73,13 @@ class Login extends Component {
                                         onChange={this.handleChange.bind(this)}
                                     />
                                 </FormGroup>
-                            </Col>
+                            </Row>
+                            <Row className={'added-padding'}>
                             <Button
+                                style={{width: '100%'}}
                                 onClick={this.handleSubmit.bind(this)}
-                            >Submit</Button>
+                            >Login</Button>
+                            </Row>
                         </Form>
                     </Container>
                 </div>

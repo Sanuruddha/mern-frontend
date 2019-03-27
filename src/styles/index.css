@@ -144,3 +144,7 @@ tr:nth-child(even) {
 .view-btn {
     width: inherit !important;
 }
+
+.added-padding {
+    padding: 0 1rem 0 1rem;
+}
