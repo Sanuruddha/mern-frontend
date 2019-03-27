@@ -28,7 +28,7 @@ class OpenOrderModal extends React.Component {
                         <table style={{width: '100%'}}>
                             <tbody>
                                 <tr>
-                                    <th>Item</th>
+                                    <th style={{paddingLeft: '0.2rem'}}>Item</th>
                                     <th className={'text-right'}>Count</th>
                                     <th className={'text-right'}>Price</th>
                                     <th className={'text-right'}>Add/Remove</th>
@@ -37,7 +37,7 @@ class OpenOrderModal extends React.Component {
                                     total = total + item.price * item.count / 100
                                     return (
                                         <tr key={item._id}>
-                                            <td>
+                                            <td style={{paddingLeft: '0.5rem'}}>
                                                 {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
                                             </td>
                                             <td className={'text-right'}>
@@ -47,12 +47,12 @@ class OpenOrderModal extends React.Component {
                                                 {(item.price * item.count / 100).toFixed()}
                                             </td>
                                             <td className={'text-right'}>
-                                            <button type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
+                                            <button style={{width: '40%', marginRight: '0.2rem'}} className='plus-button btn btn-success suc' type="button" value="plus" onClick={this.addItemToList.bind(this, this.props.id, item.id)}>
                                                 <i className="fa fa-plus"></i>
                                             </button>
-                                                <button type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
-                                                    <i className="fa fa-minus"></i>
-                                                </button>
+                                            <button style={{width: '40%'}} className='minus-button btn btn-danger dan' type="button" value="minus" onClick={this.removeItemFromList.bind(this, this.props.id, item.id)}>
+                                                <i className="fa fa-minus"></i>
+                                            </button>
                                             </td>
                                         </tr>
                                     )

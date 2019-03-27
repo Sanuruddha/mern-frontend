@@ -137,10 +137,6 @@
     /*border-bottom: rgba(0, 0, 0, 0.2) 1px solid;*/
 }
 
-tr:nth-child(even) {
-    background-color: #dddddd;
-}
-
 .view-btn {
     width: inherit !important;
 }
@@ -158,4 +154,8 @@ tr:nth-child(even) {
     width: 400px;
     height: 266px;
     margin: -75px 0 0 -100px;
+}
+
+.plus-button .minus-button {
+
 }

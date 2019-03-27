@@ -90,8 +90,8 @@ class OrderForm extends Component {
                                         <td className="td-right">{item.count}</td>
                                         <td className="td-right">{item.price * item.count / 100}</td>
                                         <td className="td-right">
-                                            <button onClick={this.handleIncrement.bind(this, item._id)}>+</button>
-                                            <button onClick={this.handleDecrement.bind(this, item._id)}>-</button>
+                                            <button style={{width: '40%', marginRight: '0.2rem'}} className='minus-button btn btn-success suc' onClick={this.handleIncrement.bind(this, item._id)}><i className="fa fa-plus"></i></button>
+                                            <button style={{width: '40%'}} className='minus-button btn btn-danger dan' onClick={this.handleDecrement.bind(this, item._id)}><i className="fa fa-minus"></i></button>
                                         </td>
                                     </tr>
                                 )
@@ -103,19 +103,20 @@ class OrderForm extends Component {
                                 <th scope="col" className="td-right">{total? "Total": ""}</th>
                                 <th scope="col" className="td-right">{total? total: ''}</th>
                             </tr>
+                            <tr>
+                                <th scope="col">{""}</th>
+                                <th scope="col">{""}</th>
+                                <th scope="col">{""}</th>
+                                <th colSpan={2} scope="col" style={{padding: '2rem 0 0 0'}} className="td-right">
+                                    <Button style={{border: '0', width: '40%', marginRight: '0.2rem'}} className={'dan'} onClick={this.handleClear.bind(this)}>Clear</Button>
+                                    <Button style={{border: '0', width: '40%'}} className={'suc'} onClick={this.handleSubmit.bind(this)}>Submit</Button>
+                                </th>
+
+                            </tr>
                             </tbody>
                         </table>
                     </div>
                 </FormGroup>
-                <Row>
-                    <Col/><Col/><Col/>
-                    <Col>
-                        <Button style={{border: '0', width: '100%'}} className={'dan'} onClick={this.handleClear.bind(this)}>Clear</Button>
-                    </Col>
-                    <Col>
-                        <Button style={{border: '0', width: '100%'}} className={'suc'} onClick={this.handleSubmit.bind(this)}>Submit</Button>
-                    </Col>
-                </Row>
             </Form>
         );
     }
