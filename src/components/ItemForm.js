@@ -65,7 +65,7 @@ class ItemForm extends Component {
                     <Input value={this.state.price} onChange={this.handleChange.bind(this)} type="number" name="price" id="exampleText" placeholder="Price" />
                 </FormGroup>
                 <FormGroup>
-                    <Label for="exampleText">Add Image</Label>
+                    <Label for="exampleText">Add Image (400 x 266)</Label>
                     <br/>
                     <input
                         onChange={this.getPhoto.bind(this)}

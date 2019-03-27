@@ -69,7 +69,7 @@ class Item extends Component {
                             <h6>{item.name.toUpperCase()}</h6>
                         </CardTitle>
                     </CardHeader>
-                    <CardImg top style={{width: "100%"}} className={'p-1'}
+                    <CardImg top className={'p-1 crop'}
                         src={`/img/${item.imgPath}`}
                              alt="Card image cap" />
                     <CardBody className={'p-1'}>
