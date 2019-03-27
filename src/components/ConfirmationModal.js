@@ -22,8 +22,8 @@ class ConfirmationModal extends React.Component {
                         {this.props.modalBodyText}
                     </ModalBody>
                     <ModalFooter>
-                        <Button color={this.props.cancelColor}  onClick={this.toggleModal.bind(this)}>{this.props.modalCancelLabel}</Button>
-                        <Button color={this.props.confirmColor}  onClick={this.handleConfirmation.bind(this)}>{this.props.modalConfirmationLabel}</Button>{' '}
+                        <Button style={{minHeight: '3rem',width: '50%'}} color={this.props.cancelColor}  onClick={this.toggleModal.bind(this)}>{this.props.modalCancelLabel}</Button>
+                        <Button style={{minHeight: '3rem',width: '50%'}} color={this.props.confirmColor}  onClick={this.handleConfirmation.bind(this)}>{this.props.modalConfirmationLabel}</Button>{' '}
                     </ModalFooter>
                 </Modal>
             </div>
