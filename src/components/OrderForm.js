@@ -104,12 +104,9 @@ class OrderForm extends Component {
                                 <th scope="col" className="td-right">{total? total: ''}</th>
                             </tr>
                             <tr>
-                                <th scope="col">{""}</th>
-                                <th scope="col">{""}</th>
-                                <th scope="col">{""}</th>
-                                <th colSpan={2} scope="col" style={{padding: '2rem 0 0 0'}} className="td-right">
-                                    <Button style={{border: '0', width: '40%', marginRight: '0.2rem'}} className={'dan'} onClick={this.handleClear.bind(this)}>Clear</Button>
-                                    <Button style={{border: '0', width: '40%'}} className={'suc'} onClick={this.handleSubmit.bind(this)}>Submit</Button>
+                                <th rowSpan={2} colSpan={5} scope="col" style={{padding: '2rem 0 0 0'}} className="td-right">
+                                    <Button style={{border: '0', minHeight: '3rem', width: '49%', marginRight: '0.2rem'}} className={'dan'} onClick={this.handleClear.bind(this)}>Clear</Button>
+                                    <Button style={{border: '0', minHeight: '3rem', width: '50%'}} className={'suc'} onClick={this.handleSubmit.bind(this)}>Add Order</Button>
                                 </th>
 
                             </tr>

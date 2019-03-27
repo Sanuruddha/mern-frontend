@@ -28,7 +28,7 @@ export const createList = (list) => (dispatch) => {
                 type: ADD_LIST,
                 payload: res.data
             });
-            toast('List added successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
+            toast('Order added successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
         });
 };
 
@@ -50,7 +50,7 @@ export const removeList = (id) => (dispatch) => {
                 type: DELETE_LIST,
                 payload: res.data._id
             });
-            toast('List deleted successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
+            toast('Order deleted successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
         });
 
 };
@@ -67,7 +67,7 @@ export const closeList = list => (dispatch) => {
                     type: ADD_LIST,
                     payload: res.data
                 });
-            toast('List checked out successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
+            toast('Order checked out successfully',  { type: 'success', autoClose: 2000, hideProgressBar: true});
         }).catch(
 
     );

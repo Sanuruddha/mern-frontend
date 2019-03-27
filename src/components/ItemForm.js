@@ -73,7 +73,7 @@ class ItemForm extends Component {
                         id="avatar" name="avatar"
                         accept="image/png, image/jpeg"/>
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button style={{minHeight: '3rem', width: '100%'}}>Add Item</Button>
             </Form>
         );
     }
