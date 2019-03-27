@@ -66,7 +66,7 @@ class OpenOrderModal extends React.Component {
                         </table>
                     </ModalBody>
                     <ModalFooter>
-                        <Button color={this.props.cancelColor}  onClick={this.toggleModal.bind(this)}>{this.props.modalCancelLabel}</Button>
+                        <Button style={{width: '100%'}} color={this.props.cancelColor}  onClick={this.toggleModal.bind(this)}>{this.props.modalCancelLabel}</Button>
                     </ModalFooter>
                 </Modal>
             </div>
