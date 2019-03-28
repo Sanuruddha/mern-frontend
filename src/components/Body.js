@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Row} from 'reactstrap';
 import { Redirect } from "react-router";
-import ItemGrid from './RightGrid';
+import RightGrid from './RightGrid';
 import AppNavBar from './AppNavBar';
 import PropTypes from "prop-types";
 import {connect} from "react-redux";
@@ -30,7 +30,7 @@ class Body extends Component {
                     <ToastContainer newestOnTop pauseOnFocusLoss={false}/>
                     <Row style={{marginRight: '0', marginLeft: '0'}}>
                         <LeftGrid/>
-                        <ItemGrid/>
+                        <RightGrid/>
                     </Row>
                 </div>
             )
