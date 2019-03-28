@@ -20,15 +20,17 @@ class Login extends Component {
 
     componentDidMount() {
         const token = localStorage.getItem('token');
+        // checks for an auth token and if any, authenticate with token then set the logged in state
         if (token) {
             this.props.authenticateWithToken(token);
         } else {
+            // redirects to login page if no auth token
             this.props.history.push('/login');
         }
     }
-
     handleSubmit = (e) => {
         e.preventDefault();
+        // try to authenticate with username password then set the logged in state and redirects to dashboard if successful
         this.props.authenticate(this.state);
         history.push('/dashboard');
     };
@@ -40,11 +42,13 @@ class Login extends Component {
 
     render() {
         if (this.props.auth.loggedIn) {
+            // redirects dashboard if user is logged in
             return (
                 <Redirect to={'/dashboard'}/>
             )
         }
         else {
+            // renders login form if not logged in
             return (
                 <div>
                     <AppNavBar/>

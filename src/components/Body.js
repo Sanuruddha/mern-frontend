@@ -13,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 class Body extends Component {
     componentDidMount() {
+        // checks for an auth token in the local storage
         const token = localStorage.getItem('token');
         if (token) {
             this.props.authenticateWithToken(token);
@@ -21,6 +22,7 @@ class Body extends Component {
         }
     }
     render() {
+        //renders body if logged in, else redirects to login page
         if (this.props.auth.loggedIn) {
             return (
                 <div>

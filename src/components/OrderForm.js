@@ -15,8 +15,9 @@ class OrderForm extends Component {
     showToast = (error, type) => toast(error,  { type, autoClose: 2000, hideProgressBar: true});
     handleSubmit = (e) => {
         e.preventDefault();
-        if (!this.props.list.newList.name.length > 0) return this.showToast('Invalid list name', 'error');
-        if (!this.props.list.newList.items.length > 0) return this.showToast('Number of items in the list cannot be 0', 'error');
+        // handles bunch of validations before adding an order
+        if (!this.props.list.newList.name.length > 0) return this.showToast('Invalid order list name', 'error');
+        if (!this.props.list.newList.items.length > 0) return this.showToast('Number of items in the order list cannot be 0', 'error');
         this.props.createList(this.props.list.newList);
     };
     handleClear = (e) => {
@@ -45,8 +46,10 @@ class OrderForm extends Component {
         let index = this.props.list.newList.items.map(item => item.id ).indexOf(id);
         let updatedItems = [...this.props.list.newList.items];
         if (index > -1)
+            // decrement the item count if the count is greater than 1
             if (updatedItems[index].count > 1)
                 updatedItems[index].count --;
+            // remove the item from list if the count is 1
             else if (updatedItems[index].count === 1)
                 updatedItems.splice(index, 1);
         this.props.updateNewList({

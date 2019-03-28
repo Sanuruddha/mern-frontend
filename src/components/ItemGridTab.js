@@ -8,7 +8,9 @@ import {connect} from "react-redux";
 class ItemGridTab extends Component {
     render() {
         const { items, loading } = this.props.item;
+        // checks whether items are still loading
         if (!loading) {
+            // checks whether there are any items after loading
             if (items.length > 0) {
                 return (
                     <Container>
@@ -36,6 +38,7 @@ class ItemGridTab extends Component {
             }
 
         } else {
+            // render a spinner until the items are finished loading
             return (
                 <Col>
                     <Spinner style={{ width: '3rem', height: '3rem' }} />

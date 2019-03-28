@@ -25,15 +25,15 @@ export const authenticateWithToken = (token) => dispatch => {
     setAuthHeader(token);
     return axios
         .get('/api/users/current')
-        .then(res2 => {
-                if(res2.status === 200) {
+        .then(res => {
+                if(res.status === 200) {
                     localStorage.setItem('token', token);
-                    localStorage.setItem('user', JSON.stringify(res2.data));
+                    localStorage.setItem('user', JSON.stringify(res.data));
                     history.push('/dashboard');
-                    const loggedIn = res2.status === 200;
+                    const loggedIn = res.status === 200;
                     dispatch({
                         type: LOGGED_IN,
-                        payload: {token: token, user: res2.data, loggedIn: loggedIn}
+                        payload: {token: token, user: res.data, loggedIn: loggedIn}
                     })
                 }
             }

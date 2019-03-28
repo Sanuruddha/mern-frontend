@@ -20,11 +20,13 @@ class ItemForm extends Component {
         });
     };
     showToast = (error, type) => toast(error,  { type, autoClose: 2000, hideProgressBar: true});
+
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(typeof this.state.avatar);
-
+        // FormData object is needed because of the image file upload.
         let formData = new FormData();
+
+        // Bunch of validation checks before sending the post request to create an item
         if (!this.state.name.length > 0) return this.showToast('Invalid item name', 'error');
         formData.append('name', this.state.name);
         if (!this.state.description.length > 0) return this.showToast('Invalid item description', 'error');
@@ -33,6 +35,7 @@ class ItemForm extends Component {
         formData.append('price', this.state.price * 100);
         if (!this.state.avatar) return this.showToast('Invalid item image', 'error');
         formData.append('avatar', this.state.avatar);
+
         this.props.addItem(formData);
         this.setState({
             name: '',

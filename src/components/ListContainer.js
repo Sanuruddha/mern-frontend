@@ -22,11 +22,15 @@ class ListContainer extends Component {
 
     render() {
         const { lists, loading } = this.props.list;
-        let renderLists = [];
-        if (lists)
-            renderLists = lists.filter(list => list.status !== 1 && list.items.length > 0);
+        // checks if the order lists are loading
         if (!loading) {
-            if (lists.length > 0) {
+            let renderLists = [];
+            if (lists) {
+                // filters open and non empty orders
+                renderLists = lists.filter(list => list.status !== 1 && list.items.length > 0);
+            }
+            if (renderLists.length > 0) {
+                // renders open and non empty orders if exist
                 return (
                     <Col>
                         <Row className={'order-grid'}>
@@ -39,12 +43,13 @@ class ListContainer extends Component {
             } else {
                 return (
                     <Col>
-                        <h4>No lists to display</h4>
+                        <h4>No orders to display</h4>
                     </Col>
                 )
             }
 
         } else return (
+            // renders a spinner while loading
             <Col>
                 <Spinner style={{ width: '3rem', height: '3rem' }} />
             </Col>

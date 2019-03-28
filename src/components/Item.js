@@ -37,11 +37,15 @@ class Item extends Component {
         });
     }
     addToList = () => {
+        // checks which tab is open in the order list grid before adding the item
         if (this.props.tab.openOrders)
+            // if open orders tab, then try to add the item to the selected list if any
             this.props.addToList(this.props.list.selectedList, this.props.selfItem._id);
         if (this.props.tab.newOrder) {
+            // if new order tab, then add the item to the new list temporary
             let index = this.props.list.newList.items.map(item => item.id ).indexOf(this.props.selfItem._id);
             let updatedItems = [];
+            // if the item added more than once, just increment count
             if (index > -1)
                 updatedItems = this.props.list.newList.items.map(item => {
                     if (item.id === this.props.selfItem._id) {
@@ -49,9 +53,11 @@ class Item extends Component {
                     }
                     return item;
                 });
+            // if the item is being added to the first time, insert item object
             else {
                 updatedItems = [...this.props.list.newList.items, { id: this.props.selfItem._id, count : 1 }];
             }
+            // call the action creator with the updated temporary item list
             this.props.updateNewList({
                 ...this.props.list.newList,
                 items: updatedItems

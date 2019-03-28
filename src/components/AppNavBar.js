@@ -34,6 +34,7 @@ export class AppNavBar extends Component {
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className={'ml-auto'} navbar>
+                            {/*renders logout button if already logged in*/}
                             <NavItem>
                                 {
                                 this.props.auth.loggedIn? (<NavLink href={'/logout'}>

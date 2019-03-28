@@ -60,13 +60,16 @@ class OrderList extends Component {
         const { lists } = this.props.list;
         const _id = this.props.id;
         const name = this.props.name;
-        const list = lists.filter(list => list._id === _id)[0];
+        // get the self order list
+        const list = lists.filter(list => list._id === _id).shift();
+        // items is an object id array
+        // populates the items array with relevant items from item state
         const items =list.items.map(listitem => {
-            const item = this.props.item.items.filter(item => item._id === listitem.id)[0];
+            const item = this.props.item.items.filter(item => item._id === listitem.id).shift();
             if (item)
                 return {...listitem, price: item.price, name: item.name};
-            return false
-        }).filter(listitem => listitem !== false);
+            return null
+        }).filter(listitem => listitem !== null);
         let sum = 0;
         if (items.length > 0) {
             sum = items.map(item => item.price * item.count / 100).reduce((total, value) => total + value, 0).toFixed(2);
